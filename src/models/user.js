@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema({
             }
         },
         trim: true,
-        lowercase:true,
+        lowercase:true
     },
     password: {
         type: String,
@@ -107,7 +107,6 @@ userSchema.pre('save', async function(next) {
 
 userSchema.pre('remove', async function (next) {
     const user = this
-    console.log(user._id)
     await Task.deleteMany({owner: user._id})
     next()
 })

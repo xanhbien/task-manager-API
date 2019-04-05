@@ -145,7 +145,7 @@ router.patch('/users/me',auth,  async(req, res) => {
     
     } catch (error) {
 
-        console.log(error)
+        res.status(400).send()
     }
 })
 
@@ -158,8 +158,9 @@ router.delete('/users/me', auth, async (req, res) => {
         
     } catch (error) {
         
-        res.status(500).send(error)
+        res.status(401).send(error)
     }
 })
+
 
 module.exports = router
